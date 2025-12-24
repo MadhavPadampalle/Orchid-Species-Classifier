@@ -1,47 +1,110 @@
-# 🌸 Orchid Species Classifier
+# 🌸 Orchid Species Classifier (DNA Sequence Based)
 
-A Machine Learning–based project for **classifying Orchidaceae species using DNA sequences**. This project uses **k‑mer frequency features** extracted from DNA barcode sequences and applies **Logistic Regression** for accurate species prediction.
-
----
-
-## 📌 Project Overview
-
-Orchidaceae is one of the largest plant families, and accurate species identification is crucial for biodiversity conservation, taxonomy, and research. Manual identification is time‑consuming and error‑prone. This project automates orchid species classification using **bioinformatics and machine learning** techniques.
+A **web‑based Machine Learning application** for **automatic classification of Orchidaceae plant species using DNA sequences**. The system applies **k‑mer (NLP‑inspired) feature extraction** on genomic data and uses trained ML models to predict orchid species accurately.
 
 ---
 
-## 🧬 Dataset
+## 📌 Project Title
 
-* **File name:** `orchidaceae_flower.txt`
-* **Data type:** DNA sequences (FASTA / text format)
-* **Labels:** Orchid species names
+**DNA Sequence Based Classification of Orchidaceae Plant Species using K‑mer Features and Machine Learning Techniques**
 
-Each DNA sequence is converted into numerical features using **k‑mer frequency extraction**.
+---
+
+## 🎯 Objective
+
+* Automate Orchidaceae species identification using DNA barcoding
+* Reduce dependency on slow and error‑prone morphological classification
+* Apply **NLP techniques on genomic data** (DNA as language, k‑mers as words)
+* Provide a **user‑friendly web interface** for prediction
+
+---
+
+## 🧬 Dataset Information
+
+* **Source:** NCBI GenBank
+* **Gene Used:** `matK`
+* **Format:** FASTA / Text
+* **Dataset File:** `orchidaceae_flower.txt`
+* **Preprocessing:**
+
+  * Removal of low‑quality sequences
+  * Uniform sequence handling
+  * k‑mer encoding (hexamers)
 
 ---
 
 ## ⚙️ Technologies Used
 
-* **Programming Language:** Python 🐍
-* **Libraries:**
+### 🔹 Backend & ML
 
-  * NumPy
-  * Pandas
-  * Scikit‑learn
-* **Machine Learning Algorithm:** Logistic Regression
-* **Feature Extraction:** k‑mer frequency method
+* Python 🐍
+* NumPy
+* Pandas
+* Scikit‑learn
+* Pickle (model serialization)
+
+### 🔹 Machine Learning Models
+
+* Logistic Regression
+* Random Forest
+* K‑Nearest Neighbors
+* Support Vector Machine
+* **Gradient Boosting (Best Model)**
+
+### 🔹 Feature Extraction
+
+* k‑mer frequency method
+* CountVectorizer (NLP approach)
+
+### 🔹 Web Framework
+
+* Flask
+* HTML (templates)
+* CSS & JS (static files)
 
 ---
 
 ## 🧠 Methodology
 
-1. Load DNA sequence dataset
+1. Collect Orchidaceae DNA sequences (matK gene)
 2. Clean and preprocess sequences
-3. Extract k‑mer frequency features
-4. Encode species labels
-5. Train Logistic Regression classifier
-6. Evaluate model accuracy
-7. Predict orchid species for new DNA sequences
+3. Convert DNA sequences into k‑mer features
+4. Generate numerical vectors using CountVectorizer
+5. Train multiple ML classifiers
+6. Evaluate models using accuracy & F1‑score
+7. Save best performing model and vectorizer
+8. Deploy model using Flask web application
+
+---
+
+## 📊 Model Performance
+
+| Model                  | Accuracy     |
+| ---------------------- | ------------ |
+| Logistic Regression    | 88.89%       |
+| Random Forest          | 88.89%       |
+| K‑Nearest Neighbors    | 66.67%       |
+| Support Vector Machine | 88.89%       |
+| **Gradient Boosting**  | **94.44%** ✅ |
+
+---
+
+## 📁 Project Structure
+
+```
+project_folder/
+│
+├── static/                  # CSS, JS, images
+├── templates/               # HTML templates
+│
+├── app.py                   # Flask application
+├── orchidaceae_flower.txt   # DNA sequence dataset
+├── orchid_model.pkl         # Trained ML model
+├── orchid_model4.pkl        # Improved/best model
+├── vectorizer.pkl           # CountVectorizer
+├── vectorizer4.pkl          # Updated vectorizer
+└── README.md
+```
 
 ---
 
@@ -54,66 +117,60 @@ git clone https://github.com/your-username/orchid-species-classifier.git
 cd orchid-species-classifier
 ```
 
-### 2️⃣ Install dependencies
+### 2️⃣ Install required packages
 
 ```bash
 pip install -r requirements.txt
 ```
 
-### 3️⃣ Run the program
+### 3️⃣ Run the Flask app
 
 ```bash
-python aap.py
+python app.py
+```
+
+### 4️⃣ Open in browser
+
+```
+http://127.0.0.1:5000/
 ```
 
 ---
 
-## 📊 Model Output
+## 🧪 Sample Input
 
-* Displays **classification accuracy**
-* Predicts **orchid species name** for a given DNA sequence
-
----
-
-## 🧪 Example Input
-
-```text
-ATGCGTACGATCGATCGTACGATCG
+```
+ATGCGTACGATCGATCGTACGATCGA
 ```
 
-### Example Output
+### Sample Output
 
-```text
-Predicted Species: Dendrobium nobile
+```
+Predicted Orchid Species: Dendrobium nobile
 ```
 
 ---
 
-## 📁 Project Structure
+## 🌱 Future Enhancements
 
-```
-orchid-species-classifier/
-│── aap.py
-│── orchidaceae_flower.txt
-│── requirements.txt
-│── README.md
-```
-
----
-
-## 🚀 Future Enhancements
-
-* Support for deep learning models (CNN / LSTM)
-* Web‑based frontend for sequence upload
-* Multi‑barcode sequence support
-* Improved accuracy with ensemble models
+* Include additional gene regions (rbcL, ITS)
+* Expand dataset with more orchid species
+* Apply deep learning models (CNN, LSTM)
+* Real‑time sequence upload & validation
+* Cloud deployment (AWS / Heroku)
 
 ---
 
 ## 👨‍💻 Author
 
-**Vaishanth**
-Machine Learning & Bioinformatics Enthusiast
+**Mr. Madhav Padampalle**
+(2021BIT031)
+Department of Information Technology
+SGGSIET, Nanded
+
+### 👨‍🏫 Guide
+
+**Dr. Ankush D. Sawarkar**
 
 ---
 
@@ -123,4 +180,4 @@ This project is licensed under the **MIT License**.
 
 ---
 
-⭐ *If you find this project useful, please give it a star!*
+⭐ *If you find this project useful, feel free to star the repository!*
